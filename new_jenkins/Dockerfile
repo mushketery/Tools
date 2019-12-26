@@ -68,7 +68,9 @@ USER ${user}
 
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
-# Set up Kubectl
+# ENV DOCKER_VERSIO
+ENV KUBERNETES_VERSION=v1.15.4
+# Install Kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
